@@ -113,6 +113,7 @@ processResources {
 	inputs.property "neoforge_dependency", project.neoforge_dependency
 	inputs.property "minecraft_dependency", project.minecraft_dependency
 	inputs.property "id", mod_id
+	inputs.property "mod_name", mod_name
 
 	filesMatching("META-INF/neoforge.mods.toml") {
 		def valueMap = [
@@ -120,7 +121,8 @@ processResources {
 				"version": finalModVersion,
 				"loader_dependency": project.loader_dependency,
 				"neoforge_dependency": project.neoforge_dependency,
-				"minecraft_dependency": project.minecraft_dependency
+				"minecraft_dependency": project.minecraft_dependency,
+				"mod_name": mod_name
 		]
 		expand valueMap
 	}
