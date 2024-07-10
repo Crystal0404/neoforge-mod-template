@@ -1,0 +1,31 @@
+modLoader = "javafml"
+loaderVersion = "${loader_dependency}"
+#issueTrackerURL = ""
+license = "Insert License Here"
+
+[[mods]]
+modId = "${id}"
+version = "${version}"
+displayName = "TemplateMod"
+authors = "Me!"
+description = '''
+This is an example description! Tell everyone what your mod is about!
+'''
+#logoFile = ""
+
+[[dependencies.template_mod]]
+modId = "neoforge"
+type = "required"
+versionRange = "${neoforge_dependency}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.template_mod]]
+modId = "minecraft"
+type = "required"
+versionRange = "${minecraft_dependency}"
+ordering = "NONE"
+side = "BOTH"
+
+[[mixins]]
+config = "template_mod.mixins.json"

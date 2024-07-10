@@ -20,36 +20,17 @@
 
 package me.fallenbreath.template_mod;
 
-import net.fabricmc.api.ModInitializer;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.metadata.ModMetadata;
+import net.neoforged.fml.common.Mod;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-//#if MC >= 11800
-//$$ import com.mojang.logging.LogUtils;
-//$$ import org.slf4j.Logger;
-//#else
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-//#endif
+@Mod(TemplateMod.MOD_ID)
+public class TemplateMod {
+	public final static String MOD_ID = "template_mod";
+	public final static String MOD_Name = "TemplateMod";
+	public final static Logger LOGGER = LoggerFactory.getLogger(MOD_Name);
 
-public class TemplateMod implements ModInitializer
-{
-	public static final Logger LOGGER =
-			//#if MC >= 11800
-			//$$ LogUtils.getLogger();
-			//#else
-			LogManager.getLogger();
-			//#endif
-
-	public static final String MOD_ID = "template_mod";
-	public static String MOD_VERSION = "unknown";
-	public static String MOD_NAME = "unknown";
-
-	@Override
-	public void onInitialize()
-	{
-		ModMetadata metadata = FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow(RuntimeException::new).getMetadata();
-		MOD_NAME = metadata.getName();
-		MOD_VERSION = metadata.getVersion().getFriendlyString();
+	public TemplateMod() {
+		LOGGER.info("Hello Minecraft!");
 	}
 }
